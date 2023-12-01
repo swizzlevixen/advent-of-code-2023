@@ -16,8 +16,9 @@
 file = open("01_input.txt", "r")
 lines = file.readlines()
 
-# This is extremely dumb, but we are supposed to parse BOTH numbers if they
-#   overlap, so this keeps the overlap part while clearing the matched one
+# This is extremely dumb, but we are supposed to parse BOTH numbers
+#   if they overlap, so this keeps any overlap part
+#   while preventing if from matching again
 englishDigits = {
     "one": "on1ne",
     "two": "tw2wo",
