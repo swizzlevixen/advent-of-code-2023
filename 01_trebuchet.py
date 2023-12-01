@@ -1,5 +1,7 @@
 # Test values
+# Part A:
 # lines = ["1abc2", "pqr3stu8vwx", "a1b2c3d4e5f", "treb7uchet"]
+# Part B:
 # lines = [
 #     "two1nine",
 #     "eightwothree",
@@ -15,7 +17,7 @@ file = open("01_input.txt", "r")
 lines = file.readlines()
 
 # This is extremely dumb, but we are supposed to parse BOTH numbers if they
-#   overlap, so this keeps the overlap part while clearning the subbed one
+#   overlap, so this keeps the overlap part while clearing the matched one
 englishDigits = {
     "one": "on1ne",
     "two": "tw2wo",
@@ -29,37 +31,12 @@ englishDigits = {
 }
 
 # Substitute text names for digits
-#   uggghhhh it has overlaps in the text and you have to sub the first one
-#   so this doesn't work:
-# for name, digit in englishDigits.items():
-# lines = [line.replace(name, digit) for line in lines]
-
-
-def translateDigits(line: str) -> str:
-    # Set the marker past the end, so that we can move it backwards,
-    # if a match is found
-    marker = len(line)
-    print(f"line: {line}")
-    match = ""
-
-    for name in englishDigits:
-        tempMarker = line.find(name)
-        if tempMarker > -1 and tempMarker < marker:
-            marker = tempMarker
-            match = name
-    if marker < len(line) and match != "":
-        print(f"marker: {marker}, match: {match}")
-        # We found something; replace ONLY the first occurrence
-        line = line.replace(match, englishDigits[match], 1)
-        # Check again, recursively
-        line = translateDigits(line)
-    return line
-
+for name, digit in englishDigits.items():
+    lines = [line.replace(name, digit) for line in lines]
 
 sum = 0
 
 for line in lines:
-    line = translateDigits(line)
     digits = list(filter(str.isdigit, line))
     firstDigit = digits[0]
     lastDigit = digits[-1]
