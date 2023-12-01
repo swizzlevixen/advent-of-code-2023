@@ -14,16 +14,18 @@
 file = open("01_input.txt", "r")
 lines = file.readlines()
 
+# This is extremely dumb, but we are supposed to parse BOTH numbers if they
+#   overlap, so this keeps the overlap part while clearning the subbed one
 englishDigits = {
-    "one": "1",
-    "two": "2",
-    "three": "3",
-    "four": "4",
-    "five": "5",
-    "six": "6",
-    "seven": "7",
-    "eight": "8",
-    "nine": "9",
+    "one": "on1ne",
+    "two": "tw2wo",
+    "three": "thre3hree",
+    "four": "fou4our",
+    "five": "fiv5ive",
+    "six": "si6ix",
+    "seven": "seve7even",
+    "eight": "eigh8ight",
+    "nine": "nin9ine",
 }
 
 # Substitute text names for digits
