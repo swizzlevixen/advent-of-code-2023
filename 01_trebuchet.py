@@ -18,7 +18,7 @@ lines = file.readlines()
 
 # This is extremely dumb, but we are supposed to parse BOTH numbers
 #   if they overlap, so this keeps any overlap part
-#   while preventing if from matching again
+#   while preventing it from matching again
 englishDigits = {
     "one": "on1ne",
     "two": "tw2wo",
